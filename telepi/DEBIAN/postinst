@@ -1,0 +1,12 @@
+#! /bin/bash
+#
+
+echo "TelePi"
+if [ "$1" = "configure" ]; then
+echo "$0"  
+echo "$1"  
+echo "$2"  
+echo "$3"  
+if [ -e /opt/tg/bin/telegram-cli ]; then echo "It's already installed!"; fi;
+exit 0
+

@@ -33,3 +33,7 @@ chown telepi:telepi mkfifo /tmp/fifoout
 screen -d -m -S telepi  
 screen -S telepi -X stuff 'su - telepi\n'  
 screen -S telepi -X stuff '/opt/tg/bin/telegram-cli -k /opt/tg/tg-server.pub -W -s telepi.lua 2>&1 | tee /tmp/fifoout\n'  
+
+
+dpkg --build telepi
+dpkg-name -o telepi.deb
