@@ -36,7 +36,7 @@ make
 # lighttpd debian install
 lighty-enable-mod fastcgi-php
 service lighttpd force-reload
-chown www-data:www-data /var/www
+chown www-data:www-data /var/www -R
 chmod 775 /var/www
 usermod -a -G www-data telepi
 
