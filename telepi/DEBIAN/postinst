@@ -7,6 +7,39 @@ echo "$0"
 echo "$1"  
 echo "$2"  
 echo "$3"  
-if [ -e /opt/tg/bin/telegram-cli ]; then echo "It's already installed!"; fi;
+if [ -e /opt/tg/bin/telegram-cli ]; then 
+  echo "It's already installed!";
+  exit 0;
+fi;
+
+# add my own user
+useradd -d /var/lib/telepi telepi
+usermod -a -G tty telepi
+mkfifo /tmp/fifoout
+chown telepi:telepi /tmp/fifoout
+chmod 0755 /var/lib/telepi
+chown telepi:telepi /var/lib/telepi
+
+# gpio-admin install from source
+cd /tmp
+git clone https://github.com/quick2wire/quick2wire-gpio-admin.git && cd quick2wire-gpio-admin/
+make install
+cd ..
+rm quick2wire-gpio-admin -R
+
+# Telegram install from source
+cd /opt
+git clone --recursive https://github.com/vysheng/tg.git && cd tg
+./configure
+make
+
+# lighttpd debian install
+lighty-enable-mod fastcgi-php
+service lighttpd force-reload
+chown www-data:www-data /var/www
+chmod 775 /var/www
+usermod -a -G www-data telepi
+
+
 exit 0
 
