@@ -1,6 +1,8 @@
 # telepi
 .deb package to install and configure a Telegram controled RaspberryPi
 
+**NOT READY**
+
 This is the starting point to get inside the .deb pack
 
 **gpio-admin:** http://www.miraculum.ch/2012/08/13/installing-and-using-quik2wire-gpio-admin/  
@@ -28,7 +30,7 @@ mkdir /var/lib/telepi
 useradd -d /var/lib/telepi telepi  
 usermod -a -G tty telepi  
 mkfifo /tmp/fifoout  
-chown telepi:telepi mkfifo /tmp/fifoout  
+chown telepi:telepi /tmp/fifoout  
 ¿¿¿ tail -f /tmp/fifoout ??? Si queremos verlo en otro terminal aparte  
 screen -d -m -S telepi  
 screen -S telepi -X stuff 'su - telepi\n'  
