@@ -1,7 +1,7 @@
 # telepi
 .deb package to install and configure a Telegram controled RaspberryPi
 
-**NOT READY**
+**NOT READY!!!!**
 
 This is the starting point to get inside the .deb pack
 

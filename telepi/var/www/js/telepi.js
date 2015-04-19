@@ -9,9 +9,8 @@
   // $("#eso").one("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd", function(){ alert("I am an alert box!"); });
 //});
 var semaforo=true;
-jQuery(function($){
-   //$( "#date" ).datepicker();
-   //$( "#dialog" ).dialog();
+//jQuery(function($){
+$(function() {
    //$("#eso").one("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd", function(){ alert("I am an alert box!"); });
    $("#eso").bind("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd",
        function(){ 
