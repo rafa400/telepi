@@ -104,3 +104,40 @@
 .botonon2:active{
   left: 47px;
 }
+
+
+.led-red {
+    margin: 40px auto;
+    width: 24px;
+    height: 24px;
+    background-color: #F88;
+    border-radius: 50%; 
+    box-shadow: #000 0 -2px 14px 2px, inset #600 0 -2px 18px, #F00 0 4px 24px;
+}
+
+.led-yellow {
+    margin: 20px auto;
+    width: 12px;
+    height: 12px;
+    background-color: #FD0;
+    border-radius: 50%;
+    box-shadow: #000 0 -1px 7px 1px, inset #660 0 -1px 9px, #DD0 0 2px 12px;
+}
+
+.led-green {
+    margin: 20px auto;
+    width: 12px;
+    height: 12px;
+    background-color: #690;
+    border-radius: 50%;
+    box-shadow: #000 0 -1px 7px 1px, inset #460 0 -1px 9px, #7D0 0 2px 12px;
+}
+
+.led-blue {
+    margin: 20px auto;
+    width: 12px;
+    height: 12px;
+    background-color: #4AB;
+    border-radius: 50%;
+    box-shadow: #000 0 -1px 7px 1px, inset #006 0 -1px 9px, #06F 0 2px 14px;
+}
