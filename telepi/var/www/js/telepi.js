@@ -19,7 +19,7 @@ $(function() {
             setTimeout(function() {semaforo=true;
                                    if ($('#eso').hasClass('botonoff2')) $("#eso").addClass("botonoff").removeClass("botonoff2");
                                    if ($('#eso').hasClass('botonon2')) $("#eso").addClass("botonon").removeClass("botonon2");
-                                  }, 200); 
+                                  }, 400); 
             if ($('#eso').hasClass('botonoff')) {
               $("#eso").addClass("botonon2").removeClass("botonoff");
             } else {
