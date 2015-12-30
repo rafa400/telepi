@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<settings>
+    <category label="TelePI">
+        <setting label="UNO" type="text"   id="username" default=""/>
+        <setting label="DOS" type="text"   id="password" option="hidden"  enable="!eq(-1,)" default=""/>
+        <setting label="TRES" type="slider" id="limit" subsetting="true" default="20" range="5,5,100" option="int" />
+        <setting type="sep"/>
+        <setting id="debug" type="bool" label="MAS" default="false"/>
+    </category>
+    <category label="Telegram">
+        <setting label="JAJA" type="action" action="RunScript(EstoEsUnaFun, HOLAHOLA)"/>
+        <setting id="my_setting" type="bool" default="true" label="My Setting"/>
+    </category>
+    <category label="Home">
+        <setting id="my_setting" type="bool" default="true" label="My Setting"/>
+    </category>
+</settings>
