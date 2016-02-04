@@ -1,0 +1,28 @@
+from BeautifulSoup import BeautifulSoup
+ 
+with open("config.xml") as f:
+    content = f.read()
+
+y = BeautifulSoup(content)
+print(y.mysql.host.contents[0])
+for tag in y.other.preprocessing_queue:
+    print(tag)
+
+where the config.xml might look like this:
+
+<config>
+    <mysql>
+        <host>localhost</host>
+        <user>root</user>
+        <passwd>my secret password</passwd>
+        <db>write-math</db>
+    </mysql>
+    <other>
+        <preprocessing_queue>
+            <li>preprocessing.scale_and_center</li>
+            <li>preprocessing.dot_reduction</li>
+            <li>preprocessing.connect_lines</li>
+        </preprocessing_queue>
+        <use_anonymous value="true" />
+    </other>
+</config>

@@ -2,7 +2,7 @@ Package: telepi
 Section: NETKOMBAT
 Priority: optional
 Architecture: all
-Depends: libreadline-dev,libconfig-dev,libssl-dev,lua5.2,liblua5.2-dev,libevent-dev,make,lighttpd,php5-common,php5-cgi,php5  
+Depends: libreadline-dev,libconfig-dev,libssl-dev,lua5.2,liblua5.2-dev,lua-lgi,libnotify-bin,libnotify-dev,libevent-dev,libjansson4, libjansson-dev,make,lighttpd,php5-common,php5-cgi,php5  
 Replaces: 
 Version: 01-01
 Maintainer: Rafael Gandia Castello <rafa400@losgandia.com>

@@ -13,7 +13,9 @@ cd ..
 rm quick2wire-gpio-admin -R  
 **Telegram:** https://github.com/vysheng/tg  
 apt-get update  
-apt-get -y install libreadline-dev libconfig-dev libssl-dev lua5.2 liblua5.2-dev libevent-dev make  
+apt-get install python3-dev
+alias python='/usr/bin/python3' # Per user activate version 3
+apt-get -y install libreadline-dev libconfig-dev libssl-dev lua5.2 liblua5.2-dev libevent-dev libjansson-dev make  
 cd /opt  
 git clone --recursive https://github.com/vysheng/tg.git && cd tg  
 ./configure  
@@ -30,11 +32,14 @@ mkdir /var/lib/telepi
 useradd -d /var/lib/telepi telepi  
 usermod -a -G tty telepi  
 mkfifo /tmp/fifoout  
+chown telepi:telepi /var/lib/telepi  
 chown telepi:telepi /tmp/fifoout  
 ¿¿¿ tail -f /tmp/fifoout ??? Si queremos verlo en otro terminal aparte  
 screen -d -m -S telepi  
 screen -S telepi -X stuff 'su - telepi\n'  
-screen -S telepi -X stuff '/opt/tg/bin/telegram-cli -k /opt/tg/tg-server.pub -W -s telepi.lua 2>&1 | tee /tmp/fifoout\n'  
+screen -S telepi -X stuff '/opt/tg/bin/telegram-cli -k /opt/tg/tg-server.pub -W -s telepi.lua 2>&1 | tee /tmp/fifoout\n' 
+screen -S telepi -X stuff '/opt/tg/bin/telegram-cli -k /opt/tg/tg-server.pub -W -Z /opt/tg/telepi.py 2>&1\n'
+ 
 
 
 dpkg --build telepi

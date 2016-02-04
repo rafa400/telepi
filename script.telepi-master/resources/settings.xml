@@ -12,6 +12,6 @@
         <setting id="my_setting" type="bool" default="true" label="My Setting"/>
     </category>
     <category label="Home">
-        <setting id="my_setting" type="bool" default="true" label="My Setting"/>
+        <setting id="esesto" type="bool" default="true" label="My Setting"/>
     </category>
 </settings>
