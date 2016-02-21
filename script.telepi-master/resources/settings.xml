@@ -1,17 +1,61 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <settings>
     <category label="TelePI">
-        <setting label="UNO" type="text"   id="username" default=""/>
-        <setting label="DOS" type="text"   id="password" option="hidden"  enable="!eq(-1,)" default=""/>
-        <setting label="TRES" type="slider" id="limit" subsetting="true" default="20" range="5,5,100" option="int" />
-        <setting type="sep"/>
-        <setting id="debug" type="bool" label="MAS" default="false"/>
+        <setting id="host"       label="Host"     type="ipaddress" default="127.0.0.1"/>
+        <setting id="username"   label="User"     type="text"   default="root"/>
+        <setting id="password"   label="Password" type="text"   option="hidden"  enable="!eq(-1,)" default=""/>
+        <setting id="limit"      label="Speakers" type="slider" subsetting="true" default="20" range="5,5,100" option="int" />
+        <setting type="lsep"     label="Wifi phone detection"/>
+        <setting id="wifi1"      label="OpenWRT Wifi-1 IP"     type="ipaddress" default="0.0.0.0"/>
+        <setting id="w1psswd"    label="Password (root)" type="text"   option="hidden"  enable="!eq(-1,)" default=""/>
+        <setting id="wifi2"      label="OpenWRT Wifi-2 IP"     type="ipaddress" default="0.0.0.0"/>
+        <setting id="w2psswd"    label="Password (root)" type="text"   option="hidden"  enable="!eq(-1,)" default=""/>
+        <setting type="lsep"     label="Phone 1 data"/>
+	<setting id="phonename1" label="Name"       type="text"   default=""/>
+        <setting id="phonemac1"  label="MAC adress" type="text"   default="" enable="!eq(-1,)"/>
+        <setting id="phonebt1"   label="BT adress"  type="text"   default="" enable="!eq(-2,)"/>
+        <setting type="lsep"     label="Phone 2 data"/>
+	<setting id="phonename2" label="Name"       type="text"   default=""/>
+        <setting id="phonemac2"  label="MAC adress" type="text"   default="" enable="!eq(-1,)"/>
+        <setting id="phonebt2"   label="BT adress"  type="text"   default="" enable="!eq(-2,)"/>
+        <setting type="lsep"     label="Phone 3 data"/>
+	<setting id="phonename3" label="Name"       type="text"   default=""/>
+        <setting id="phonemac3"  label="MAC adress" type="text"   default="" enable="!eq(-1,)"/>
+        <setting id="phonebt3"   label="BT adress"  type="text"   default="" enable="!eq(-2,)"/>
     </category>
     <category label="Telegram">
-        <setting label="JAJA" type="action" action="RunScript(EstoEsUnaFun, HOLAHOLA)"/>
-        <setting id="my_setting" type="bool" default="true" label="My Setting"/>
+        <setting id="telenable" label="Enable Telegram Integration" type="bool" default="false"/>
+        <setting id="telnumber" label="Telephone Nuber" type="text"   default=""  enable="eq(-1,true)"/>
+        <setting id="initcode"  label="CODE to enable"  type="number" default=""  enable="eq(-2,true)"/>
+        <setting id="telaction" label="Activate!"       type="action" action="RunScript(EstoEsUnaFun, HOLAHOLA)"   enable="!eq(-2,)+!eq(-1,)+eq(-3,true)"/>
+        <setting id="groupname" label="Group Name"      type="text"   default="Telepi" enable="eq(-4,true)"/>
+        <setting id="testmssg"  label="Test Message"    type="text"   default="TelePi here!" enable="eq(-5,true)"/>
     </category>
-    <category label="Home">
-        <setting id="esesto" type="bool" default="true" label="My Setting"/>
+    <category label="Alarm">
+        <setting id="alenable"   label="Enable Alarm System" type="bool" default="false"/>
+        <setting type="lsep" label="General"/>
+        <setting id="alartelegram" label="Allow Telegram commands" type="bool" default="true" enable="eq(-2,true)"/>
+        <setting id="alpresence1"  label="Enable Presence Sensor 1" type="bool" default="false" enable="eq(-3,true)"/>
+        <setting id="alpresence2"  label="Enable Presence Sensor 2" type="bool" default="false" enable="eq(-4,true)"/>
+        <setting id="alpresence3"  label="Enable Presence Sensor 3" type="bool" default="false" enable="eq(-5,true)"/>
+        <setting id="alusebell"    label="Use door bell on alarm"  type="bool" default="false" enable="eq(-6,true)"/>
+        <setting id="alusephone"   label="Use Phone detection"  type="bool" default="false" enable="eq(-7,true)"/>
+    </category>
+    <category label="Door">
+        <setting id="doorenable"   label="Enable Door System" type="bool" default="false"/>
+        <setting type="sep"/>
+        <setting id="doortelegram" label="Allow Telegram commands" type="bool" default="true" enable="eq(-2,true)"/>
+        <setting id="doorusephone" label="Use Phone detection"  type="bool" default="false" enable="eq(-3,true)"/>
+    </category>
+    <category label="Thermostate">
+        <setting id="termenable"   label="Enable Thermostate System" type="bool" default="false"/>
+        <setting type="sep"/>
+        <setting id="termtelegram" label="Allow Telegram commands" type="bool" default="true" enable="eq(-2,true)"/>
+        <setting id="termusephone" label="Use Phone detection"  type="bool" default="false" enable="eq(-3,true)"/>
+    </category>
+    <category label="Irrigation">
+        <setting id="irrenable" label="Enable Irrigation" type="bool" default="false"/>
+        <setting type="sep"/>
+        <setting id="irritelegram" label="Allow Telegram commands" type="bool" default="true" enable="eq(-2,true)"/>
     </category>
 </settings>

@@ -24,7 +24,7 @@ function exec_command($xml,$command) {
    $lang    = read_config($xml,['espeak','language']);
    $espeak  = read_config($xml,['comlist',$command,'text']);
    $response= read_config($xml,['comlist',$command,'response']);
-#   echo $exec.'espeak -v '.$lang.' \''.$espeak.'\';';
+#  echo $exec.'espeak -v '.$lang.' \''.$espeak.'\';';
    $result=shell_exec ( $exec.'./talk.sh '.$lang.' \''.$espeak.'\' > /dev/null 2>&1' );
    write_config($xml,['comlist',$command,'result'],$result);
    echo "$result"." "."$response";

@@ -40,6 +40,8 @@ chown www-data:www-data /var/www -R
 chmod 775 /var/www
 usermod -a -G www-data telepi
 
+# Install telepid service and run at boot
+update-rc.d telepi enable
 
 exit 0
 

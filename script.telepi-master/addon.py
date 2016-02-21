@@ -19,4 +19,7 @@ addon.setSetting('my_setting', 'false')
 
 os.system("echo caca>>/home/rafa400/caca.txt")
 
-xbmcgui.Dialog().ok(addonname, line1, line2, line3 + my_setting)
+dia=xbmcgui.Dialog();
+dia.addControl(xbmcgui.ControlLabel(x=190, y=25, width=500, height=25, label="Hoooolaa"))
+dia.ok(addonname, line1, line2, line3 + my_setting)
+#xbmcgui.Window().show()

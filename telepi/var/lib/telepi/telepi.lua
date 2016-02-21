@@ -4,7 +4,7 @@ function on_msg_receive (msg)
         return
     end
     if (msg.to.type=='chat') and (msg.to.print_name=='Telepi') then
-    	if (msg.text=='ping') then
+    	if (msg.text:lower()=='ping') then
         	send_msg (msg.to.print_name , '-> pong' , ok_cb, false)
     	else
                 local handle = io.popen('php telepi.php '.. msg.text)
@@ -12,17 +12,30 @@ function on_msg_receive (msg)
 --              local handle = io.open("output.txt", "rb")
                 local result = handle:read("*a")
                 handle:close()
-        	send_msg (msg.to.print_name, "-> "..result , ok_cb, false)
+                if     string.find(msg.text:lower(),'photo') then
+                   send_photo (msg.to.print_name, '/var/lib/telepi/eso.jpg', ok_cb, false)  
+                elseif string.find(msg.text:lower(),'video') then
+                   send_video (msg.to.print_name, '/var/lib/telepi/eso.mp4', ok_cb, false)
+                else
+                   send_msg (msg.to.print_name, "-> "..result , ok_cb, false)
+                end
         end
     end
     if (msg.from.type=='chat') and (msg.from.print_name=='Telepi') then
-        if (msg.text=='ping') then
+        if (msg.text:lower()=='ping') then
                 send_msg (msg.from.print_name , '-> pong' , ok_cb, false)
         else
                 local handle = io.popen('php telepi.php '.. msg.text)
                 local result = handle:read("*a")
                 handle:close()
-                send_msg (msg.to.print_name, "-> "..result , ok_cb, false)
+                if (msg.text=='photo') then
+                   send_photo (msg.from.print_name, '/var/lib/telepi/eso.jpg', ok_cb, false)
+                else
+                   send_msg (msg.from.print_name, "-> "..result , ok_cb, false)
+                end
+                if (msg.text=='video') then
+                   send_video (msg.from.print_name, '/var/lib/telepi/eso.mp4', ok_cb, false)
+                end
         end
     end
 end

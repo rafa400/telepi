@@ -1,0 +1,13 @@
+Template: telepi/phonenumber
+Type: string
+Default: +34 
+Description: Phone number for Telegram configuration
+ Will see how it works
+ 
+Template: telepi/question2
+Type: select
+Choices: yes mas si, no, maybe
+Default: no
+Description: This is another one
+ Will see how it works
+

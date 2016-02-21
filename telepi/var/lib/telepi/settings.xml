@@ -1,0 +1,8 @@
+<settings>
+    <setting id="debug" value="false" />
+    <setting id="esesto" value="true" />
+    <setting id="limit" value="20" />
+    <setting id="my_setting" value="false" />
+    <setting id="password" value="" />
+    <setting id="username" value="" />
+</settings>

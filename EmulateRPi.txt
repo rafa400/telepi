@@ -1,0 +1,19 @@
+Follow:
+https://www.raspberrypi.org/forums/viewtopic.php?f=29&t=37386
+
+Download the kernel image from:
+https://github.com/dhruvvyas90/qemu-rpi-kernel
+
+To enable ethernet connection change /etc/network/interfaces to
+iface eth0 inet dhcp
+and reboot or ifdown eth0; ifup eth0
+
+To chage keyboard config
+dpkg-reconfigure keyboard-configuration
+
+LAUNCH
+/media/backup/IMG-ISO# qemu-system-arm -kernel kernel-qemu-4.1.13-jessie -cpu arm1176 -m 256 -M versatilepb -no-reboot -serial stdio -append "root=/dev/sda2 panic=1" -hda rafa-arm.img -redir tcp:5022::22
+
+
+Loop mounts explained
+https://wiki.debian.org/RaspberryPi/qemu-user-static
